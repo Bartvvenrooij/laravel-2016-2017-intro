@@ -12,6 +12,7 @@
 */
 
 Route::get('/', "IndexController@index");
+Route::post('/post', "IndexController@post");
 
 Route::get('/home', function () {
     return view('welcome');

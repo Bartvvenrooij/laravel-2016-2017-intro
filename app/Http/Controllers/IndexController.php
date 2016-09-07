@@ -13,4 +13,9 @@ class IndexController extends Controller
     {
         return view("index.index");
     }
+
+    public function post(Request $request)
+    {
+        dd($request->get('title'));
+    }
 }
