@@ -14,6 +14,9 @@
 Route::get('/', "IndexController@index");
 Route::post('/post', "IndexController@post");
 
+
+Route::get('/article', "ArticleController@index")->name('article.index');
+
 Route::get('/home', function () {
     return view('welcome');
 });

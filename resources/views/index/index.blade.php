@@ -5,6 +5,8 @@
 @section("content")
     <h1>Home</h1>
 
+    <a href="{{ route('article.index') }}">Article</a>
+
     {!! Form::open(['url' => '/post']) !!}
         {!! Form::text('title', null, ['placeholder' => 'Voer text in']) !!}
         {!! Form::textarea('description') !!}
