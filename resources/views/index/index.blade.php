@@ -5,11 +5,7 @@
 @section("content")
     <h1>Home</h1>
 
-    <a href="{{ route('article.index') }}">Article</a>
+    <a href="{{ route('article.create') }}">Article</a>
 
-    {!! Form::open(['url' => '/post']) !!}
-        {!! Form::text('title', null, ['placeholder' => 'Voer text in']) !!}
-        {!! Form::textarea('description') !!}
-        {!! Form::submit('Opslaan') !!}
-    {!! Form::close() !!}
+
 @stop
