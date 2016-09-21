@@ -48,4 +48,22 @@ class ArticleController extends Controller
         $article = Article::findOrFail($id);
         return view('article.show', compact('article'));
     }
+
+    public function edit($id)
+    {
+        $article = Article::findOrFail($id);
+        return view('article.edit', compact('article'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validator = $this->validator($request);
+        if($validator->fails()) {
+            return $this->throwValidationException($request, $validator);
+        }
+        $postData = $request->all();
+        $article = Article::findOrFail($id);
+        $article->update($postData);
+        return redirect(route('article.show', $id));
+    }
 }
