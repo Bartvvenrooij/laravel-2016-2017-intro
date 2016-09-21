@@ -4,8 +4,14 @@
 
 @section('content')
     {!! Form::open(['url' => '/article']) !!}
-    {!! Form::text('title', null, ['placeholder' => 'Voer text in']) !!}
-    {!! Form::textarea('description') !!}
+    <div class="form-group">
+        {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Voer text in']) !!}
+        @include('layouts.error', ['field' => 'title'])
+    </div>
+    <div class="form-group">
+        {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
+        @include('layouts.error', ['field' => 'description'])
+    </div>
     {!! Form::submit('Opslaan') !!}
     {!! Form::close() !!}
 @stop
