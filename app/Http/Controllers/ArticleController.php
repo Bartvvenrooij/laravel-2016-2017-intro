@@ -17,8 +17,7 @@ class ArticleController extends Controller
 
     public function create()
     {
-        dd('test');
-//        return view('article.create');
+        return view('article.create');
     }
 
     public function store(Request $request)
