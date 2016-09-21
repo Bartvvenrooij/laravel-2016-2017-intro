@@ -46,6 +46,6 @@ class ArticleController extends Controller
     public function show($id)
     {
         $article = Article::findOrFail($id);
-        dd($article);
+        return view('article.show', compact('article'));
     }
 }
