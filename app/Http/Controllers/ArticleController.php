@@ -42,4 +42,10 @@ class ArticleController extends Controller
         ]);
         return redirect(route('article.create'));
     }
+
+    public function show($id)
+    {
+        $article = Article::findOrFail($id);
+        dd($article);
+    }
 }
