@@ -66,4 +66,11 @@ class ArticleController extends Controller
         $article->update($postData);
         return redirect(route('article.show', $id));
     }
+
+    public function destroy($id)
+    {
+        $article = Article::findOrFail($id);
+        $article->delete();
+        return redirect(route('article.index'));
+    }
 }

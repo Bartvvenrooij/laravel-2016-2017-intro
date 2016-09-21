@@ -19,6 +19,7 @@ Route::get('/article/{article}', "ArticleController@show")->name('article.show')
 Route::get('/article/{article}/edit', "ArticleController@edit")->name('article.edit');
 Route::post('/article', "ArticleController@store")->name('article.store');
 Route::patch('/article/{article}', "ArticleController@update")->name('article.update');
+Route::delete('/article/{article}', "ArticleController@destroy")->name('article.destroy');
 
 Route::get('/home', function () {
     return view('welcome');
