@@ -6,7 +6,6 @@ use App\Article;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Illuminate\Support\Facades\DB;
 use Validator;
 
 class ArticleController extends Controller
@@ -21,7 +20,8 @@ class ArticleController extends Controller
 
     public function index()
     {
-        return view('article.index');
+        $articles = Article::all();
+        return view('article.index', compact('articles'));
     }
 
     public function create()
