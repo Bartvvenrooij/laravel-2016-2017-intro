@@ -6,6 +6,7 @@ use App\Article;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
