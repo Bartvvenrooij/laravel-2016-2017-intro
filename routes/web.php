@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', "IndexController@index");
+Route::get('/', "IndexController@index")->name('index');
 
 Route::resource('article', "ArticleController");
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('auth.login');
-Route::post('logout', 'Auth\LoginController@logout')->name('auth.logout');
+Route::get('logout', 'Auth\LoginController@logout')->name('auth.logout');
 // Registration Routes...
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register')->name('auth.register');
