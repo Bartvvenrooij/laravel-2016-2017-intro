@@ -13,7 +13,26 @@
 
 Route::get('/', "IndexController@index")->name('index');
 
-Route::resource('article', "ArticleController");
+
+
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('article', "ArticleController", ['only' => ['edit', 'update']]);
+});
+
+Route::resource('article', "ArticleController", ['except' => ['edit', 'update']]);
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('auth.login');
