@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -29,5 +30,12 @@ class User extends Authenticatable
 
     public function role() {
         return $this->belongsTo('App\Role');
+    }
+
+    public function getIsAdminAttribute() {
+        if(Auth::user()->role_id != 1 && Auth::user()->role->name != "Admin") {
+            return false;
+        }
+        return true;
     }
 }

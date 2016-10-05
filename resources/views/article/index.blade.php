@@ -4,7 +4,11 @@
 
 @section('content')
     <h1>Article</h1>
-    <a href="{{ route('article.create') }}">Create Article</a>
+    @if(Auth::check())
+        @if(Auth::user()->is_admin)
+            <a href="{{ route('article.create') }}">Create Article</a>
+        @endif
+    @endif
     @foreach($articles as $article)
         <div class="well">
             <a href="{{ route('article.show', $article->id) }}">{{ $article->title }}</a>
