@@ -16,11 +16,11 @@ Route::get('/', "IndexController@index")->name('index');
 
 
 
-Route::group(['middleware' => ['auth']], function () {
-    Route::resource('article', "ArticleController", ['only' => ['edit', 'update']]);
+Route::group(['middleware' => ['auth', 'admin']], function () {
+    Route::resource('article', "ArticleController", ['except' => ['index', 'show']]);
 });
 
-Route::resource('article', "ArticleController", ['except' => ['edit', 'update']]);
+Route::resource('article', "ArticleController", ['only' => ['index', 'show']]);
 
 
 
