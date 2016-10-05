@@ -22,18 +22,6 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
 Route::resource('article', "ArticleController", ['only' => ['index', 'show']]);
 
-
-
-
-
-
-
-
-
-
-
-
-
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('auth.login');
 Route::get('logout', 'Auth\LoginController@logout')->name('auth.logout');

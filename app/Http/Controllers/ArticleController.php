@@ -40,36 +40,32 @@ class ArticleController extends Controller
             'title' => $postData['title'],
             'description' => $postData['description']
         ]);
-        return redirect(route('article.create'));
+        return redirect(route('article.index'));
     }
 
-    public function show($id)
+    public function show($article)
     {
-        $article = Article::findOrFail($id);
         return view('article.show', compact('article'));
     }
 
-    public function edit($id)
+    public function edit($article)
     {
-        $article = Article::findOrFail($id);
         return view('article.edit', compact('article'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $article)
     {
         $validator = $this->validator($request);
         if($validator->fails()) {
             return $this->throwValidationException($request, $validator);
         }
         $postData = $request->all();
-        $article = Article::findOrFail($id);
         $article->update($postData);
-        return redirect(route('article.show', $id));
+        return redirect(route('article.show', $article->id));
     }
 
-    public function destroy($id)
+    public function destroy($article)
     {
-        $article = Article::findOrFail($id);
         $article->delete();
         return redirect(route('article.index'));
     }
