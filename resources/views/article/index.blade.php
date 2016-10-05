@@ -9,6 +9,12 @@
             <a href="{{ route('article.create') }}">Create Article</a>
         @endif
     @endif
+
+    {!! Form::open(['route' => 'article.search']) !!}
+    {!! Form::text('search', null, ["placeholder" => "Search..."]) !!}
+    {!! Form::submit('Search') !!}
+    {!! Form::close() !!}
+
     @foreach($articles as $article)
         <div class="well">
             <a href="{{ route('article.show', $article->id) }}">{{ $article->title }}</a>

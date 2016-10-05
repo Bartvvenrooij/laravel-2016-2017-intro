@@ -69,4 +69,14 @@ class ArticleController extends Controller
         $article->delete();
         return redirect(route('article.index'));
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $articles = Article::where('title', 'like', "%$search%")
+            ->orWhere('description', 'like', "%$search%")
+            ->get();
+        return view('article.index', compact('articles'));
+
+    }
 }

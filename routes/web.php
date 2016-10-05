@@ -21,6 +21,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 });
 
 Route::resource('article', "ArticleController", ['only' => ['index', 'show']]);
+Route::post('article/search', "ArticleController@search")->name('article.search');
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('auth.login');
