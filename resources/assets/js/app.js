@@ -15,5 +15,9 @@ require('./bootstrap');
 
 Vue.component('example', require('./components/Example.vue'));
 
-const app = new Vue({}
-);
+new Vue({
+    el: '#test-vue',
+    data: {
+        buttonText: "Dit is de text"
+    }
+});

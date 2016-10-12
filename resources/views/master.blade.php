@@ -12,7 +12,13 @@
 
     @include('layouts.header')
 
-    @yield("content")
+{{--    @yield("content")--}}
+
+    <example></example>
+    <div id="test-vue">
+        <button>@{{ buttonText }}</button>
+    </div>
+
 
     <script src="{{ asset('js/app.js') }}"></script>
 
